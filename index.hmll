@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="STRATOS DESIGN（ストラトスデザイン）｜大阪府堺市のオリジナルグッズ製作・レーザー加工・ステッカー・看板表札・ステンシル・ロゴデザイン工房。1点からオーダーメイド対応。">
+  <title>STRATOS DESIGN｜オリジナルグッズ製作＆ロゴデザイン</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    }
+
+    /* 上部の控えめな操作ガイド */
+    .guide-bar {
+      width: 100%;
+      max-width: 800px;
+      background-color: #1a1a1a;
+      color: #ddd;
+      text-align: center;
+      font-size: 13px;
+      padding: 8px 12px;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid #c62828;
+    }
+    .guide-bar span {
+      color: #ff5252;
+      font-weight: bold;
+    }
+
+    /* 画像とボタンを重ねる外枠 */
+    .wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      line-height: 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+    .wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 画像が読み込めないときの案内表示 */
+    .error-msg {
+      display: none;
+      color: #fff;
+      background: #b71c1c;
+      padding: 20px;
+      line-height: 1.6;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    /* 透明なクリックボタン（各メニュー枠全体を押せる仕様） */
+    .pdf-btn {
+      position: absolute;
+      display: block;
+      text-decoration: none;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+      -webkit-tap-highlight-color: rgba(198, 40, 40, 0.25);
+    }
+    .pdf-btn:hover,
+    .pdf-btn:active,
+    .pdf-btn:focus-visible {
+      background-color: rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 0 0 3px rgba(229, 57, 53, 0.85);
+      outline: none;
+    }
+
+    /* 6つのボタン配置（画像サイズに合わせて自動追従） */
+    .btn-laser   { top: 19%;   left: 0%;  width: 50%; height: 29.5%; }
+    .btn-goods   { top: 19%;   left: 50%; width: 50%; height: 29.5%; }
+    .btn-sticker { top: 48.5%; left: 0%;  width: 50%; height: 25%; }
+    .btn-sign    { top: 48.5%; left: 50%; width: 50%; height: 25%; }
+    .btn-stencil { top: 73.5%; left: 0%;  width: 50%; height: 25%; }
+    .btn-logo    { top: 73.5%; left: 50%; width: 50%; height: 25%; }
+
+    /* フッター（お問い合わせ・店舗情報） */
+    .site-footer {
+      width: 100%;
+      max-width: 800px;
+      background-color: #161616;
+      border-top: 2px solid #c62828;
+      padding: 24px 20px 32px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .footer-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .footer-sub {
+      font-size: 13px;
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+    .tel-btn {
+      display: inline-block;
+      background-color: #c62828;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 28px;
+      border-radius: 4px;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .tel-btn:hover {
+      background-color: #e53935;
+    }
+    .tel-btn:active {
+      transform: scale(0.98);
+    }
+    .footer-address {
+      font-size: 13px;
+      color: #ccc;
+      margin-bottom: 14px;
+    }
+    .copyright {
+      font-size: 11px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-bar">
+    気になるメニューを<span>タップ / クリック</span>すると詳細カタログ（PDF）が開きます
+  </div>
+
+  <div class="wrapper">
+    <!-- 表紙画像 -->
+    <img src="top.jpg" alt="STRATOS DESIGN トップページ"
+         onerror="this.style.display='none'; document.getElementById('err').style.display='block';">
+
+    <div id="err" class="error-msg">
+      <strong>画像が表示できません。</strong><br>
+      「index.html」と同じフォルダに、ファイル名 <code>top.jpg</code> が入っているか確認してください。<br>
+      ※「top.jpg.jpg」や「top.JPG」（大文字）になっていないかもご確認ください。
+    </div>
+
+    <!-- 各PDFへのリンクボタン（新しいタブで開く） -->
+    <a href="laser.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn btn-laser" aria-label="レーザー加工制作のPDFを開く"></a>
+    <a href="goods.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn btn-goods" aria-label="オリジナルグッズ制作のPDFを開く"></a>
+    <a href="sticker.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn btn-sticker" aria-label="オリジナルステッカー制作のPDFを開く"></a>
+    <a href="sign.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn btn-sign" aria-label="看板・表札制作のPDFを開く"></a>
+    <a href="stencil.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn btn-stencil" aria-label="ステンシルシート制作のPDFを開く"></a>
+    <a href="logo.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn btn-logo" aria-label="ロゴ制作のPDFを開く"></a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-title">STRATOS DESIGN</div>
+    <div class="footer-sub">デザインのご相談・お見積りはお気軽にどうぞ</div>
+    <a href="tel:0722858117" class="tel-btn">TEL. 072-285-8117</a>
+    <div class="footer-address">
+      〒599-8112 大阪府堺市東区日置荘原寺町140-27
+    </div>
+    <div class="copyright">&copy; STRATOS DESIGN All Rights Reserved.</div>
+  </footer>
+
+</body>
+</html>
